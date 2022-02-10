@@ -18,6 +18,7 @@
 		80FA2C9427B5C7AF00045A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */; };
 		80FA2C9527B5C7AF00045A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */; };
 		80FA2CA527B5CD9400045A49 /* Matrix Code NFI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2CA427B5CD9400045A49 /* Matrix Code NFI.ttf */; };
+		80FA2CAA27B5D1F300045A49 /* MatrixRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		80FA2C8E27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		80FA2CA427B5CD9400045A49 /* Matrix Code NFI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matrix Code NFI.ttf"; sourceTree = "<group>"; };
 		80FA2CA627B5CE2C00045A49 /* MatrixRainEffect--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MatrixRainEffect--iOS--Info.plist"; sourceTree = "<group>"; };
+		80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +107,6 @@
 				80FA2CA727B5D0C100045A49 /* View */,
 				80FA2C6827B5C7AE00045A49 /* MatrixRainEffectApp.swift */,
 				80FA2C6927B5C7AE00045A49 /* ContentView.swift */,
-				80FA2CA827B5D0C800045A49 /* Model */,
 				80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */,
 			);
 			path = Shared;
@@ -151,15 +152,9 @@
 		80FA2CA727B5D0C100045A49 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		80FA2CA827B5D0C800045A49 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -323,6 +318,7 @@
 			files = (
 				80FA2C9227B5C7AF00045A49 /* ContentView.swift in Sources */,
 				80FA2C9027B5C7AF00045A49 /* MatrixRainEffectApp.swift in Sources */,
+				80FA2CAA27B5D1F300045A49 /* MatrixRainView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
