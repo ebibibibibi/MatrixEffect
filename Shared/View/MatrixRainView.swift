@@ -35,13 +35,31 @@ struct MatrixRainView: View {
                         //.font
                     }
                 }
-                .offset(y: startAnimation ? 0: -600)
-//  -size.heightをduration (秒)で移動するということ？
-                 //startAnimationはBool
-            }
-            .padding(.horizontal)
-       
-        }
+                //Fade like Animation Using Mask
+                .mask(alignment: .top){
+                    Rectangle()
+                        .fill(
+                        
+                            LinearGradient(colors: [
+                            
+                                .clear,
+                                .black.opacity(0.1),
+                                .black.opacity(0.2),
+                                .black.opacity(0.3),
+                                .black.opacity(0.5),
+                                .black.opacity(0.7),
+                                .black
+                                //徐々に透明度を下げている。
+                                //LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+                                
+                            ], startPoint: .top, endPoint: .bottom)
+                        )
+                        .frame(height: size.height / 2)
+                    // Animating
+                    // To look like its coming from Top
+                        .offset(y: startAnimation ? size.height : -(size.height/2))
+                    /*透明度を調整*/
+                }
         .onAppear {
             //Moving Siowly down with linear Animation(線形のアニメーション)
             withAnimation(.linear(duration: 12)){
