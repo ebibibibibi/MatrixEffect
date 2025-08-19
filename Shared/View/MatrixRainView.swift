@@ -9,22 +9,16 @@ import SwiftUI
 
 struct MatrixRainView: View {
     var body: some View {
-        /*MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
-         FOrEachでGeometry
-         For*/
+        // MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
         GeometryReader { proxy in
             let size = proxy.size
-            //Text(String("geometry: \(proxy.size.debugDescription)"))
-            //.foregroundColor(Color.yellow)
-            //print(_:)関数は、引数に与えられたオブジェクトの文字列表現(textual representation)を出力
-            //debugDescriptionはプロパティ
             HStack(spacing: 15){
                 // 全画面を占めるまでエフェクトを繰り返す
                 // フォントサイズが25なので、width/fontSizeがカウントになる。
                 //横に15ずつスペースを空けてViewGroupを作成
                 ForEach(0..<max(1, Int(size.width / 25)), id: \.self) { _ in
                     MatrixRainCharacters(size: size)
-                    //size.widthは320
+                    //size.width = 320の時
                     //size.width / 25 -> 1...12
                     //size.width / 100 -> 1,2,3
                     //size.width / 250 -> 1
