@@ -5,20 +5,34 @@
 //  Created by kotomi tahkahashi on 2022/02/11.
 //
 
+//
+//  MatrixRainView.swift
+//  MatrixRainEffect (iOS)
+//
+//  Created by kotomi tahkahashi on 2022/02/11.
+//  Optimized for memory allocation - 2025/08/20
+//
+
 import SwiftUI
 
 struct MatrixRainView: View {
     var body: some View {
-        // MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
+        /*MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
+         FOrEachでGeometry
+         For*/
         GeometryReader { proxy in
             let size = proxy.size
+            //Text(String("geometry: \(proxy.size.debugDescription)"))
+            //.foregroundColor(Color.yellow)
+            //print(_:)関数は、引数に与えられたオブジェクトの文字列表現(textual representation)を出力
+            //debugDescriptionはプロパティ
             HStack(spacing: 15){
                 // 全画面を占めるまでエフェクトを繰り返す
                 // フォントサイズが25なので、width/fontSizeがカウントになる。
                 //横に15ずつスペースを空けてViewGroupを作成
                 ForEach(0..<max(1, Int(size.width / 25)), id: \.self) { _ in
                     MatrixRainCharacters(size: size)
-                    //size.width = 320の時
+                    //size.widthは320
                     //size.width / 25 -> 1...12
                     //size.width / 100 -> 1,2,3
                     //size.width / 250 -> 1
@@ -35,20 +49,29 @@ struct MatrixRainCharacters: View{
     var size: CGSize
     @State var startAnimation: Bool = false
     @State var random: Int = 0
+
+    // MARK: - メモリ最適化: 事前計算された文字配列
+    private let precomputedCharacters: [Character] = Array(constant)
+
     var body: some View{
         VStack{
             //縦のViewGroup
             //MARK: Iterating String
-            ForEach(0..<constant.count,id: \.self){index in
-                //文字列の数だけForEachを回す。
+            ForEach(0..<precomputedCharacters.count, id: \.self) { index in
+                //文字列の数だけForEachを回す。
                 //Retriving Character at String
-                let character = Array(constant)[getRandomIndex(index: index)]
+
+                // 最適化前: let character = Array(constant)[getRandomIndex(index: index)]
+                // 最適化後: 事前計算された配列を使用
+                let character = precomputedCharacters[getRandomIndex(index: index)]
+
                 //constantをArrayと見做す。
                 //characterでArrayのインデックスを入れる。
                 //ランダムな文字を取得
                 Text(String(character))
                     .font(.custom("Matrix Code NFI", size: 25))
-                    .foregroundColor(Color("Green"))
+                    // 最適化: Color("Green") → .green (参照型を避ける)
+                    .foregroundColor(.green)
                 //.font
             }
         }
@@ -56,20 +79,8 @@ struct MatrixRainCharacters: View{
         .mask(alignment: .top){
             Rectangle()
                 .fill(
-                    
-                    LinearGradient(colors: [
-                        
-                        .clear,
-                        .black.opacity(0.1),
-                        .black.opacity(0.2),
-                        .black.opacity(0.3),
-                        .black.opacity(0.5),
-                        .black.opacity(0.7),
-                        .black
-                        //徐々に透明度を下げている。
-                        //LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
-                        
-                    ], startPoint: .top, endPoint: .bottom)
+                    // MARK: - メモリ最適化: グラデーションを計算プロパティ化
+                    optimizedGradient
                 )
                 .frame(height: size.height / 2)
             // Animating
@@ -90,16 +101,34 @@ struct MatrixRainCharacters: View{
         }
         // Timer
         .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
-            
-            random = Int.random(in: 0..<constant.count)
+            // MARK: - メモリ最適化: 範囲を事前計算された配列のサイズに変更
+            random = Int.random(in: 0..<precomputedCharacters.count)
         }
     }
-    
+
+    // MARK: - メモリ最適化: グラデーション生成を計算プロパティ化
+    private var optimizedGradient: LinearGradient {
+        LinearGradient(colors: [
+            .clear,
+            .black.opacity(0.1),
+            .black.opacity(0.2),
+            .black.opacity(0.3),
+            .black.opacity(0.5),
+            .black.opacity(0.7),
+            .black
+            //徐々に透明度を下げている。
+            //LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
+        ], startPoint: .top, endPoint: .bottom)
+    }
+
     // タイマーを使ってランダムにキャラクターを変更することができる
     func getRandomIndex(index: Int)->Int{
         //let character = Array(constant)[getRandomIndex(index: index)]
         // インデックスが範囲外にならないようにするために"-1"する。
-        let max = constant.count - 1
+
+        // MARK: - メモリ最適化: 事前計算された配列のサイズを使用
+        let max = precomputedCharacters.count - 1
+
         if (index + random) > max{
             if (index - random) < 0{
                 return index
