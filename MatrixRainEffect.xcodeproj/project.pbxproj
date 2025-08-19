@@ -18,7 +18,6 @@
 		80FA2C9327B5C7AF00045A49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C6927B5C7AE00045A49 /* ContentView.swift */; };
 		80FA2C9427B5C7AF00045A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */; };
 		80FA2C9527B5C7AF00045A49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */; };
-		80FA2CA527B5CD9400045A49 /* Matrix Code NFI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 80FA2CA427B5CD9400045A49 /* Matrix Code NFI.ttf */; };
 		80FA2CAA27B5D1F300045A49 /* MatrixRainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +52,6 @@
 		80FA2C8827B5C7AF00045A49 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FA2C8C27B5C7AF00045A49 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		80FA2C8E27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
-		80FA2CA427B5CD9400045A49 /* Matrix Code NFI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Matrix Code NFI.ttf"; sourceTree = "<group>"; };
-		80FA2CA627B5CE2C00045A49 /* MatrixRainEffect--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MatrixRainEffect--iOS--Info.plist"; sourceTree = "<group>"; };
 		80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,8 +90,6 @@
 		80FA2C6227B5C7AE00045A49 = {
 			isa = PBXGroup;
 			children = (
-				80FA2CA627B5CE2C00045A49 /* MatrixRainEffect--iOS--Info.plist */,
-				80FA2CA427B5CD9400045A49 /* Matrix Code NFI.ttf */,
 				80FA2C6727B5C7AE00045A49 /* Shared */,
 				80FA2C7627B5C7AF00045A49 /* macOS */,
 				80FA2C7F27B5C7AF00045A49 /* Tests iOS */,
@@ -285,7 +280,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80FA2CA527B5CD9400045A49 /* Matrix Code NFI.ttf in Resources */,
 				80FA2C9427B5C7AF00045A49 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -490,7 +484,7 @@
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MatrixRainEffect--iOS--Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -522,7 +516,7 @@
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MatrixRainEffect--iOS--Info.plist";
+				INFOPLIST_FILE = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
