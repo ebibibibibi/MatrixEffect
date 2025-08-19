@@ -12,9 +12,8 @@ struct MatrixRainView: View {
         /*MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
          FOrEachでGeometry
          For*/
-        GeometryReader{proxy in
+        GeometryReader { proxy in
             let size = proxy.size
-            //ここの
             //Text(String("geometry: \(proxy.size.debugDescription)"))
             //.foregroundColor(Color.yellow)
             //print(_:)関数は、引数に与えられたオブジェクトの文字列表現(textual representation)を出力
@@ -23,7 +22,7 @@ struct MatrixRainView: View {
                 // 全画面を占めるまでエフェクトを繰り返す
                 // フォントサイズが25なので、width/fontSizeがカウントになる。
                 //横に15ずつスペースを空けてViewGroupを作成
-                ForEach(1...Int(size.width / 25),id: \.self){ _ in
+                ForEach(0..<max(1, Int(size.width / 25)), id: \.self) { _ in
                     MatrixRainCharacters(size: size)
                     //size.widthは320
                     //size.width / 25 -> 1...12
