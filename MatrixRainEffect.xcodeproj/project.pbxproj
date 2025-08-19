@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		803B5F9727BBC4B000973DB3 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 803B5F9627BBC4B000973DB3 /* TestView.swift */; };
 		80FA2C8127B5C7AF00045A49 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C8027B5C7AF00045A49 /* Tests_iOS.swift */; };
 		80FA2C8327B5C7AF00045A49 /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C8227B5C7AF00045A49 /* Tests_iOSLaunchTests.swift */; };
-		80FA2C8D27B5C7AF00045A49 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C8C27B5C7AF00045A49 /* Tests_macOS.swift */; };
-		80FA2C8F27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C8E27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift */; };
 		80FA2C9027B5C7AF00045A49 /* MatrixRainEffectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C6827B5C7AE00045A49 /* MatrixRainEffectApp.swift */; };
 		80FA2C9127B5C7AF00045A49 /* MatrixRainEffectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C6827B5C7AE00045A49 /* MatrixRainEffectApp.swift */; };
 		80FA2C9227B5C7AF00045A49 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FA2C6927B5C7AE00045A49 /* ContentView.swift */; };
@@ -39,19 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		803B5F9627BBC4B000973DB3 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		80FA2C6827B5C7AE00045A49 /* MatrixRainEffectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRainEffectApp.swift; sourceTree = "<group>"; };
 		80FA2C6927B5C7AE00045A49 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		80FA2C6A27B5C7AF00045A49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		80FA2C6F27B5C7AF00045A49 /* MatrixRainEffect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatrixRainEffect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FA2C7527B5C7AF00045A49 /* MatrixRainEffect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MatrixRainEffect.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		80FA2C7727B5C7AF00045A49 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		80FA2C7C27B5C7AF00045A49 /* Tests iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		80FA2C8027B5C7AF00045A49 /* Tests_iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOS.swift; sourceTree = "<group>"; };
 		80FA2C8227B5C7AF00045A49 /* Tests_iOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_iOSLaunchTests.swift; sourceTree = "<group>"; };
 		80FA2C8827B5C7AF00045A49 /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		80FA2C8C27B5C7AF00045A49 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
-		80FA2C8E27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
 		80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatrixRainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,9 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				80FA2C6727B5C7AE00045A49 /* Shared */,
-				80FA2C7627B5C7AF00045A49 /* macOS */,
 				80FA2C7F27B5C7AF00045A49 /* Tests iOS */,
-				80FA2C8B27B5C7AF00045A49 /* Tests macOS */,
 				80FA2C7027B5C7AF00045A49 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,14 +111,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		80FA2C7627B5C7AF00045A49 /* macOS */ = {
-			isa = PBXGroup;
-			children = (
-				80FA2C7727B5C7AF00045A49 /* macOS.entitlements */,
-			);
-			path = macOS;
-			sourceTree = "<group>";
-		};
 		80FA2C7F27B5C7AF00045A49 /* Tests iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,20 +120,10 @@
 			path = "Tests iOS";
 			sourceTree = "<group>";
 		};
-		80FA2C8B27B5C7AF00045A49 /* Tests macOS */ = {
-			isa = PBXGroup;
-			children = (
-				80FA2C8C27B5C7AF00045A49 /* Tests_macOS.swift */,
-				80FA2C8E27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift */,
-			);
-			path = "Tests macOS";
-			sourceTree = "<group>";
-		};
 		80FA2CA727B5D0C100045A49 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				80FA2CA927B5D1F300045A49 /* MatrixRainView.swift */,
-				803B5F9627BBC4B000973DB3 /* TestView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,7 +286,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				803B5F9727BBC4B000973DB3 /* TestView.swift in Sources */,
 				80FA2C9227B5C7AF00045A49 /* ContentView.swift in Sources */,
 				80FA2C9027B5C7AF00045A49 /* MatrixRainEffectApp.swift in Sources */,
 				80FA2CAA27B5D1F300045A49 /* MatrixRainView.swift in Sources */,
@@ -342,8 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80FA2C8F27B5C7AF00045A49 /* Tests_macOSLaunchTests.swift in Sources */,
-				80FA2C8D27B5C7AF00045A49 /* Tests_macOS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,7 +568,6 @@
 		80FA2C9F27B5C7AF00045A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
@@ -618,7 +587,6 @@
 		80FA2CA027B5C7AF00045A49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
@@ -639,7 +607,6 @@
 		80FA2CA227B5C7AF00045A49 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
@@ -658,7 +625,6 @@
 		80FA2CA327B5C7AF00045A49 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = V9WZ4ZJY7A;
