@@ -17,8 +17,6 @@ struct ContentView: View {
             MatrixRainView()
         }
         .ignoresSafeArea()
-        ///SwiftUI の View はデフォルトでは SafeArea の中に配置される
-        ///.ignoresSafeAreaを使うと、SafeAreaを超えてViewを配置することができるようになる。
     }
 }
 
