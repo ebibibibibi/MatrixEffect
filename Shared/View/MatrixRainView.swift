@@ -8,25 +8,69 @@
 import SwiftUI
 
 struct MatrixRainView: View {
+    // MARK: - メモリテスト用State
+    @State private var testObjects: Person? = nil
     var body: some View {
         // MatrixRainViewは画面全体のsizeの値をMatrixRainCharactersに渡している。
         GeometryReader { proxy in
             let size = proxy.size
-            HStack(spacing: 15){
-                // 全画面を占めるまでエフェクトを繰り返す
-                // フォントサイズが25なので、width/fontSizeがカウントになる。
-                //横に15ずつスペースを空けてViewGroupを作成
-                ForEach(0..<max(1, Int(size.width / 25)), id: \.self) { _ in
-                    MatrixRainCharacters(size: size)
-                    //size.width = 320の時
-                    //size.width / 25 -> 1...12
-                    //size.width / 100 -> 1,2,3
-                    //size.width / 250 -> 1
-                    //size.width /Intの結果に応じて、画面をHStackとして分割している
+            VStack {
+                // MARK: - メモリテスト用ボタン
+                HStack {
+                    Button("循環参照作成") {
+                        createRetainCycle()
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.red.opacity(0.3))
+                    .foregroundColor(.white)
+                    .cornerRadius(4)
+
+                    Button("オブジェクト解放") {
+                        releaseObjects()
+                    }
+                    .padding(.horizontal, 8)
+                    .padding(.vertical, 4)
+                    .background(Color.green.opacity(0.3))
+                    .foregroundColor(.white)
+                    .cornerRadius(4)
+
+                    Text("Count: \(testObjects)")
+                        .foregroundColor(.white)
+                        .font(.caption)
                 }
+                .padding(.top, 50)
+
+                Spacer()
+
+                // 元のMatrix Effectコード
+                HStack(spacing: 5){
+                    // 全画面を占めるまでエフェクトを繰り返す
+                    // フォントサイズが25なので、width/fontSizeがカウントになる。
+                    //横に15ずつスペースを空けてViewGroupを作成
+                    ForEach(0..<max(1, Int(size.width / 25)), id: \.self) { _ in
+                        MatrixRainCharacters(size: size)
+                        //size.width = 320の時
+                        //size.width / 25 -> 1...12
+                        //size.width / 100 -> 1,2,3
+                        //size.width / 250 -> 1
+                        //size.width /Intの結果に応じて、画面をHStackとして分割している
+                    }
+                }
+                .padding(.horizontal)
             }
-            .padding(.horizontal)
         }
+    }
+
+    // MARK: - メモリテスト用メソッド
+    private func createRetainCycle() {
+        testObjects = Person(name: "えびちゃんだよ")
+    }
+
+    private func releaseObjects() {
+
+        print(testObjects?.getName() ?? "testObjectsはnilだよ")
+        testObjects = nil // Person内で循環参照が起きているのでdeinitが呼ばれない
     }
 }
 
@@ -40,7 +84,7 @@ struct MatrixRainCharacters: View{
             //縦のViewGroup
             //MARK: Iterating String
             ForEach(0..<constant.count,id: \.self){index in
-                //文字列の数だけForEachを回す。
+                //文字列の数だけForEachを回す。
                 //Retriving Character at String
                 let character = Array(constant)[getRandomIndex(index: index)]
                 //constantをArrayと見做す。
@@ -56,9 +100,9 @@ struct MatrixRainCharacters: View{
         .mask(alignment: .top){
             Rectangle()
                 .fill(
-                    
+
                     LinearGradient(colors: [
-                        
+
                         .clear,
                         .black.opacity(0.1),
                         .black.opacity(0.2),
@@ -68,7 +112,7 @@ struct MatrixRainCharacters: View{
                         .black
                         //徐々に透明度を下げている。
                         //LinearGradient(gradient: Gradient(colors: [.blue, .black]), startPoint: .leading, endPoint: .trailing)
-                        
+
                     ], startPoint: .top, endPoint: .bottom)
                 )
                 .frame(height: size.height / 2)
@@ -79,7 +123,7 @@ struct MatrixRainCharacters: View{
         .onAppear {
             //Moving Siowly down with linear Animation(線形のアニメーション)
             //Endless loop without re
-//            withAnimation(.linear(duration: 12).repeatForever(autoreverses: false)){
+            //            withAnimation(.linear(duration: 12).repeatForever(autoreverses: false)){
             withAnimation(.linear(duration: 12).delay(.random(in: 0...2)).repeatForever(autoreverses: false)){
                 // withAnimation(.linearで等速で移動。
                 //アニメーションを遅らせるには、インスタンスメソッドdelay()を使う。
@@ -90,11 +134,11 @@ struct MatrixRainCharacters: View{
         }
         // Timer
         .onReceive(Timer.publish(every: 0.2, on: .main, in: .common).autoconnect()) { _ in
-            
+
             random = Int.random(in: 0..<constant.count)
         }
     }
-    
+
     // タイマーを使ってランダムにキャラクターを変更することができる
     func getRandomIndex(index: Int)->Int{
         //let character = Array(constant)[getRandomIndex(index: index)]
